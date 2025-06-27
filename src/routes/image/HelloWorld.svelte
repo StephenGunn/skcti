@@ -6,7 +6,7 @@
 
 <div id="container">
 	<h1>
-		{text} world!
+		{text}
 	</h1>
 </div>
 
