@@ -1,38 +1,27 @@
-# sv
+# svelte-component-to-image Serverless Example
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Minimal reproduction for getting [svelte-component-to-image](https://github.com/StephenGunn/svelte-component-to-image) working on Vercel.
 
-## Creating a project
+**Live**: https://skcti.vercel.app
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Key Steps
 
-```bash
-# create a new project in the current directory
-npx sv create
+1. **Install packages**
 
-# create a new project in my-app
-npx sv create my-app
-```
+   ```bash
+   npm install svelte-component-to-image @resvg/resvg-js
+   ```
 
-## Developing
+2. **Mark `@resvg/resvg-js` as external** in both configs:
+   - `vite.config.ts`: `build.rollupOptions.external`
+   - `svelte.config.js`: `adapter({ external: ['@resvg/resvg-js'] })`
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+3. **Create component** (`src/routes/image/HelloWorld.svelte`)
 
-```bash
-npm run dev
+4. **Create endpoint** (`src/routes/image/+server.ts`)
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+5. **Add font** to `static/` directory
 
-## Building
+6. **Use image** via `<img src="/image?text=Hello">`
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+See the [blog post](https://jovianmoon.io/posts/installing-and-using-svelte-component-to-image) for detailed explanation.
