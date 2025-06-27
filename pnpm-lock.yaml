@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@resvg/resvg-js':
+        specifier: ^2.6.2
+        version: 2.6.2
     devDependencies:
       '@eslint/compat':
         specifier: ^1.2.5
